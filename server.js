@@ -24,12 +24,14 @@ const server = http.createServer((req, res) => {
     if('choice' in params){
     // Generate 1, 2, or 3 which will act as Rock, Paper, or Scissors
       let serverThrows = Math.ceil(Math.random() * 3 )
-  
+      
       if(params['choice'] == 'Rock' && serverThrows == 1){
         res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
           serverThrew: 'Rock',
-          outcome: 'You Tie. Try Again?'
+          outcome: 'You Tie. Try Again?',
+          incrementPlayerScore: false,
+          incrementServerScore: false,
         }
         res.end(JSON.stringify(objToJson));
       }
@@ -39,6 +41,8 @@ const server = http.createServer((req, res) => {
         const objToJson = {
           serverThrew: 'Paper',
           outcome: "Paper beats Rock! You Lose!",
+          incrementPlayerScore: false,
+          incrementServerScore: true,
         }
         res.end(JSON.stringify(objToJson));
       }
@@ -48,6 +52,8 @@ const server = http.createServer((req, res) => {
         const objToJson = {
           serverThrew: "Scissors",
           outcome: "Rock beats Scissors! You Win!",
+          incrementPlayerScore: true,
+          incrementServerScore: false,
         }
         res.end(JSON.stringify(objToJson));
       }
@@ -57,7 +63,9 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
   const objToJson = {
     serverThrew: 'Rock',
-    outcome: 'Paper beats Rock! You Win!'
+    outcome: 'Paper beats Rock! You Win!',
+    incrementPlayerScore: true,
+    incrementServerScore: false,
   }
   res.end(JSON.stringify(objToJson));
 }
@@ -66,7 +74,9 @@ else if(params['choice']== 'Paper' && serverThrows == 2){
   res.writeHead(200, {'Content-Type': 'application/json'});
   const objToJson = {
     serverThrew: 'Paper',
-    outcome: 'You Tie. Try Again?'
+    outcome: 'You Tie. Try Again?',
+    incrementPlayerScore: false,
+    incrementServerScore: false,
   }
   res.end(JSON.stringify(objToJson));
 }
@@ -76,6 +86,8 @@ else if(params['choice']== 'Paper' && serverThrows == 3){
   const objToJson = {
     serverThrew: "Scissors",
     outcome: "Scissors beats Paper! You lose!",
+    incrementPlayerScore: false,
+    incrementServerScore: true,
   }
   res.end(JSON.stringify(objToJson));
 }
@@ -85,7 +97,9 @@ if(params['choice']=== 'Scissors' && serverThrows == 1){
   res.writeHead(200, {'Content-Type': 'application/json'});
   const objToJson = {
     serverThrew: 'Rock',
-    outcome: 'Rock beats Scissors. You Lose!'
+    outcome: 'Rock beats Scissors. You Lose!',
+    incrementPlayerScore: false,
+    incrementServerScore: true,
   }
   res.end(JSON.stringify(objToJson));
 }
@@ -95,15 +109,19 @@ else if(params['choice']== 'Scissors' && serverThrows == 2){
   const objToJson = {
     serverThrew: 'Paper',
     outcome: "Scissors beats Paper. You Win!",
+    incrementPlayerScore: true,
+    incrementServerScore: false,
   }
   res.end(JSON.stringify(objToJson));
 }
 
-else if(params['choice']== 'Paper' && serverThrows == 3){
+else if(params['choice']== 'Scissors' && serverThrows == 3){
   res.writeHead(200, {'Content-Type': 'application/json'});
   const objToJson = {
     serverThrew: "Scissors",
-    outcome: 'You Tie. Try Again?'
+    outcome: 'You Tie. Try Again?',
+    incrementPlayerScore: false,
+    incrementServerScore: false,
   }
   res.end(JSON.stringify(objToJson));
 }  
