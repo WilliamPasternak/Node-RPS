@@ -3,7 +3,7 @@ Write a short sentence or two about this project and what it does. Be sure to in
 
 **Link to project:**  
 
-// Gif here:
+  <p align = 'center'><img align="center" src="https://github.com/WilliamPasternak/Node-RPS/blob/main/RPS.gif" alt="Scrolling through NODE RPS File"></p>
 
 
 ## How It's Made:
