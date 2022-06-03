@@ -1,7 +1,5 @@
 # Node RPS
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
-
-**Link to project:**  
+This is the classic game of Rock, Paper, Scissors with a slight twist. The user's opponent is the Node.js server!  This was the result of a paired programming session where our team was tasked with creating a simple application where the logic occured serverside. The first 'player' to 5 points wins!
 
   <p align = 'center'><img align="center" src="https://github.com/WilliamPasternak/Node-RPS/blob/main/RPS.gif" alt="Scrolling through NODE RPS File"></p>
 
